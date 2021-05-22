@@ -1,0 +1,5 @@
+.loading-page_visible {
+  display: block;
+  transform: rotate(1440deg);
+  transition: all 3s linear;
+}
