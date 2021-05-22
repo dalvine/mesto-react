@@ -64,7 +64,7 @@ function Main(props) {
                 isOpen={props.isEditAvatarPopupOpen}
                 onClose={props.closeAllPopups}
             />
-            <ImagePopup />
+            <ImagePopup card={props.card} onClose={props.closeAllPopups}/>
             <section className="profile">
                 <div className="author">
                     <div className="author__avatar">
@@ -80,7 +80,7 @@ function Main(props) {
             <section className="places">
                 <ul className="places__list">
                     {
-                        props.cards.map(({id, ...props}) => <Card key={id} card={props}/>)
+                        props.cards.map(({ _id, ...arg }) => <Card key={_id} card={arg} onCardClick={props.handleCardClick}/>)
                     }
                 </ul>
             </section>

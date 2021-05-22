@@ -12,7 +12,7 @@ function App() {
   const [userDescription, setUserDescription] = React.useState('')
   const [userAvatar, setUserAvatar] = React.useState('')
   const [cards, setCards] = React.useState([])
-  // const [selectedCard, setSelectedCard] = React.useState('')
+  const [selectedCard, setSelectedCard] = React.useState({})
 
   React.useEffect(() => {
     api.getUserInfo().then(({name, about, avatar}) => {
@@ -46,10 +46,10 @@ function App() {
           setIsEditProfilePopupOpen(false)
           setIsAddPlacePopupOpen(false)
           setIsEditAvatarPopupOpen(false)
-          // setSelectedCard('')
+          setSelectedCard({})
         }}
-        // handleCardClick={function() { setSelectedCard() }}
-        // card={selectedCard}
+        handleCardClick={setSelectedCard}
+        card={selectedCard}
         isEditProfilePopupOpen={isEditProfilePopupOpen}
         isAddPlacePopupOpen={isAddPlacePopupOpen}
         isEditAvatarPopupOpen={isEditAvatarPopupOpen}

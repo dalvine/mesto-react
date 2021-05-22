@@ -1,7 +1,10 @@
-function Card({card}) {
+function Card({card, onCardClick}) {
+    function handleClick() {
+        onCardClick(card);
+      }   
     return (
         <li className="place">
-            <img className="place__photo" src={card.link} alt={card.name} />
+            <img className="place__photo" src={card.link} alt={card.name} onClick={handleClick}/>
             <h2 className="place__title">{card.name}</h2>
             <div className="place__like-container">
                 <button className="place__like"></button>

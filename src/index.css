@@ -7,6 +7,7 @@
 @import url(./blocks/loading-page/_visible/loading-page_visible.css);
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__image/header__image.css);
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/popup/_opened/popup_opened.css);
 @import url(./blocks/popup/_content/popup_content_add-place.css);
