@@ -1,4 +1,5 @@
 function ImagePopup({card, onClose}) {
+    console.log(card)
     return (
         <section className={`popup popup_content_photo ${card.name?"popup_opened":null}`}>
             <div className="popup__photo-container">
