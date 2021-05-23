@@ -10,7 +10,7 @@ class Api {
       "method": "GET",
       "headers": this._headers
     })
-      .then(this._responseProcessing)
+      .then(this._checkResponse)
   }
 
   getUserInfo() {
@@ -18,7 +18,7 @@ class Api {
       "method": "GET",
       "headers": this._headers
     })
-      .then(this._responseProcessing)
+      .then(this._checkResponse)
   }
   // другие методы работы с API
 
@@ -31,7 +31,7 @@ class Api {
         "about": data.about,
       })
     })
-      .then(this._responseProcessing)
+      .then(this._checkResponse)
   }
 
   addCard(data) {
@@ -43,7 +43,7 @@ class Api {
         "link": data.link,
       })
     })
-      .then(this._responseProcessing)
+      .then(this._checkResponse)
   }
 
   changeAvatar(link) {
@@ -54,7 +54,7 @@ class Api {
         "avatar": link,
       })
     })
-      .then(this._responseProcessing)
+      .then(this._checkResponse)
   }
 
   deleteCard(id) {
@@ -62,7 +62,7 @@ class Api {
       "method": "DELETE",
       "headers": this._headers,
     })
-      .then(this._responseProcessing)
+      .then(this._checkResponse)
   }
 
   addLike(id) {
@@ -70,7 +70,7 @@ class Api {
       "method": "PUT",
       "headers": this._headers,
     })
-      .then(this._responseProcessing)
+      .then(this._checkResponse)
   }
 
   removeLike(id) {
@@ -78,11 +78,11 @@ class Api {
       "method": "DELETE",
       "headers": this._headers,
     })
-      .then(this._responseProcessing)
+      .then(this._checkResponse)
   }
 
 
-  _responseProcessing(res) {
+  _checkResponse(res) {
     if (res.ok) return res.json()
     return Promise.reject(res.json())
   }

@@ -58,3 +58,4 @@
 @import url(./blocks/place/__delete/place__delete.css);
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copy/footer__copy.css);
+@import url(../src/blocks/rotate/rotate.css);
