@@ -18,17 +18,9 @@ function ImagePopup({ card, onClose }) {
 
     return (
         <section
-            className={`popup popup_content_photo ${card.name ? "popup_opened" : null}`}
-            onClick={() => {
-                onClose()
-            }
+            className={`popup popup_content_photo ${card.name ? "popup_opened" : null}`
             }>
-            <div className="popup__photo-container"
-                onClick={
-                    function (evt) {
-                        evt.stopPropagation()
-                    }
-                }>
+            <div className="popup__photo-container">
                 <img
                     src={card.link ? card.link : '#'}
                     alt={card.name ? card.name : ''}
