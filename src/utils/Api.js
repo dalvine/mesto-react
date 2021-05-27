@@ -20,7 +20,6 @@ class Api {
     })
       .then(this._checkResponse)
   }
-  // другие методы работы с API
 
   editUserInfo(data) {
     return fetch(`${this._url}/users/me`, {
