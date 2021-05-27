@@ -1,17 +1,11 @@
+import React from 'react'
+
 function PopupWithForm({ title, name, isOpen, onClose, children, buttonText }) {
     return (
         <section 
-        className={`popup popup_content_${name} ${isOpen ? "popup_opened" : null}`}
-        onClick={ () => {
-            onClose()
-        }
+        className={`popup popup_content_${name} ${isOpen ? "popup_opened" : null}`
         }>
-            <div 
-            className="popup__container"
-            onClick={
-                function (evt) {
-                    evt.stopPropagation()
-                }}>
+            <div className="popup__container">
                 <form className="form" name={name}>
                     <h2 className="form__header">{title}</h2>
                     {children}

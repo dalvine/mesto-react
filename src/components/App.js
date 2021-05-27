@@ -30,19 +30,15 @@ function App() {
 
   return (
     <>
+
       <Header />
-
-      <div className="loading-page"></div>
-
+      
       <Main
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
         closeAllPopups={closeAllPopups}
         handleCardClick={setSelectedCard}
-        isEditProfilePopupOpen={isEditProfilePopupOpen}
-        isAddPlacePopupOpen={isAddPlacePopupOpen}
-        isEditAvatarPopupOpen={isEditAvatarPopupOpen}
       />
 
       <PopupWithForm name="confirm-deletion" title="Вы уверены?" buttonText="Да"/>

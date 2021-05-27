@@ -1,21 +1,19 @@
 import React from 'react'
 import Card from './Card'
-import api from '../utils/Api'
+import api from '../utils/api'
+import Loader from './Loader'
 
 
 
-function Main({ onEditAvatar, onEditProfile, onAddPlace, handleCardClick }) {
+function Main({ onEditAvatar, onEditProfile, onAddPlace, handleCardClick}) {
 
     const [userName, setUserName] = React.useState('')
     const [userDescription, setUserDescription] = React.useState('')
     const [userAvatar, setUserAvatar] = React.useState('')
     const [cards, setCards] = React.useState([])
+    const [isLoading, setIsLoading] = React.useState(true)
 
     React.useEffect(() => {
-    const main = document.querySelector('.main')
-    const isLoadingPageFigure = document.querySelector('.loading-page')
-    main.classList.add('main_hidden')
-    isLoadingPageFigure.classList.add('loading-page_visible')
     Promise.all([api.getInitialCards(), api.getUserInfo()])
       .then(value => {
         const [cardData, { name, about, avatar }] = value
@@ -26,14 +24,15 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, handleCardClick }) {
       })
       .catch(err => console.log(err))
       .finally(() => {
-        main.classList.remove('main_hidden')
-        isLoadingPageFigure.classList.remove('loading-page_visible')
+        setIsLoading(false)
       })
   }, []
   )
 
     return (
-        <main className="main">
+        <>
+        <Loader isLoading={isLoading}/>
+        <main className={`main ${isLoading ? "main_hidden" : null}`}>
             <section className="profile">
                 <div className="author">
                     <div className="author__avatar">
@@ -49,11 +48,12 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, handleCardClick }) {
             <section className="places">
                 <ul className="places__list">
                     {
-                        cards.map(({ _id, ...arg }) => <Card key={_id} card={arg} onCardClick={handleCardClick}/>)
+                        cards.map(({ _id, ...arg }) => (<Card key={_id} card={arg} onCardClick={handleCardClick}/>))
                     }
                 </ul>
             </section>
         </main>
+        </>
     )
 }
 
