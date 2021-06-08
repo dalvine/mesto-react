@@ -80,23 +80,6 @@ class Api {
     }
   } 
 
-  // _addLike(id) {
-  //   return fetch(`${this._url}/cards/likes/${id}`, {
-  //     "method": "PUT",
-  //     "headers": this._headers,
-  //   })
-  //   .then(this._checkResponse)
-  // }
-
-  // _removeLike(id) {
-  //   return fetch(`${this._url}/cards/likes/${id}`, {
-  //     "method": "DELETE",
-  //     "headers": this._headers,
-  //   })
-  //     .then(this._checkResponse)
-  // }
-
-
   _checkResponse(res) {
     if (res.ok) return res.json()
     return Promise.reject(res.json())
@@ -113,10 +96,5 @@ const api = new Api({
     'Content-Type': 'application/json'
   }
 });
-
-/* Замечание об именовании файла я не игнорирую! */ 
-/* Валидатор Я. Практикума не пропускает работу */ 
-/* Ошибка:  Не экспортирован класс Api. */ 
-/* Тех. поддержка Яндекса и наш наставник Хаз Байкулов в курсе этой проблемы! */ 
 
 export default api

@@ -1,5 +1,5 @@
 import React from 'react'
-import api from '../utils/Api'
+import api from '../utils/api'
 import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
@@ -92,6 +92,7 @@ function App() {
         setCards(cards.filter(c => !(c._id === card._id)))
         closeAllPopups()
       })
+      .catch(err => console.log(err))
   }
 
   function handleAddPlace(card) {
@@ -102,6 +103,7 @@ function App() {
       closeAllPopups()
       formReset(formAddPlaceRef)
     })
+    .catch(err => console.log(err))
   }
 
   React.useEffect(() => {
