@@ -64,21 +64,37 @@ class Api {
       .then(this._checkResponse)
   }
 
-  addLike(id) {
-    return fetch(`${this._url}/cards/likes/${id}`, {
-      "method": "PUT",
-      "headers": this._headers,
-    })
+  changeLike(id, isLiked) {
+    if (isLiked) {
+      return fetch(`${this._url}/cards/likes/${id}`, {
+        "method": "PUT",
+        "headers": this._headers,
+      })
       .then(this._checkResponse)
-  }
+    } else {
+      return fetch(`${this._url}/cards/likes/${id}`, {
+        "method": "DELETE",
+        "headers": this._headers,
+      })
+        .then(this._checkResponse)
+    }
+  } 
 
-  removeLike(id) {
-    return fetch(`${this._url}/cards/likes/${id}`, {
-      "method": "DELETE",
-      "headers": this._headers,
-    })
-      .then(this._checkResponse)
-  }
+  // _addLike(id) {
+  //   return fetch(`${this._url}/cards/likes/${id}`, {
+  //     "method": "PUT",
+  //     "headers": this._headers,
+  //   })
+  //   .then(this._checkResponse)
+  // }
+
+  // _removeLike(id) {
+  //   return fetch(`${this._url}/cards/likes/${id}`, {
+  //     "method": "DELETE",
+  //     "headers": this._headers,
+  //   })
+  //     .then(this._checkResponse)
+  // }
 
 
   _checkResponse(res) {
