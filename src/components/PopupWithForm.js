@@ -1,6 +1,8 @@
 import React from 'react'
 
 function PopupWithForm({ title, name, isOpen, onClose, children, buttonText, onSubmit, isLoadingForm, buttonLoadingText, formRef  }) {
+
+
     return (
         <section 
         className={`popup popup_content_${name} ${isOpen ? "popup_opened" : null}`

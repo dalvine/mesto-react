@@ -111,6 +111,7 @@ function App() {
       .then(value => {
         setСurrentUser(value)
       })
+      .catch(err => console.log(err))
     api.getInitialCards()
       .then(value => {
         setCards(value)
