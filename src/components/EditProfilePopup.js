@@ -27,10 +27,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser, isLoadingForm, formRef
     React.useEffect(() => {
         setName(currentUser.name  || '');
         setDescription(currentUser.about || '');
-      }, [currentUser], [isOpen]); 
-
-// У меня кстати при закрытии/открытии не удалялись данные из полей
-    
+      }, [currentUser, isOpen]);   
 
     return (
         <PopupWithForm
